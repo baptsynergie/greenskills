@@ -1,7 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import Band from '../components/Band.astro';
 import { db , Contact } from 'astro:db';
+import InfosBloc from '../components/InfosBloc.astro';
+import { Image } from 'astro:assets';
+
+import picto1 from '../images/pictos/picto_green1.svg';
+import picto2 from '../images/pictos/picto_green2.svg';
+import team from '../images/qui-sommes-nous.jpg';
+import band from '../images/band/band.png';
+
+import pdf from '../../public/pdf/plan_accueil.pdf';
+
+
 
 const errors = {firstName: "", lastName: "", email: "", zipCode: "", phone: ""}
 
@@ -57,6 +69,32 @@ if(Astro.request.method === "POST") {
 <Layout title="GreenSkills" description='meta description'>
 
 <Header title='Lorem ipsum dolor' description='Donec efficitur quam quis elit dapibus, a finibus nulla vehicula. Pellentesque interdum nibh lacus' href='#' />
+
+<section id="who-whe-are" class="margin-block">
+	<div class="container">
+		<h2 class="text-center text-black text-3xl font-finalSixBlack mb-[var(--blocks-gap)]">Qui sommes nous ? </h2>
+		<div class="content space-y-8 lg:flex lg:items-center lg:gap-8">
+
+			<div class="lg:flex-1 lg:order-2">
+				<Image src={team} alt="image de l'équipe" class="h-full w-full object-cover object-center rounded-xl" />
+			</div>
+
+			<div class="space-y-8 lg:flex-1 lg:order-1">
+				<InfosBloc image={picto1}
+							title="Lorem ipsum dolor"
+							description="Donec efficitur quam quis elit dapibus, a finibus nulla vehicula. Pellentesque interdum nibh lacus efficitur quam quis elit dapibus, a finibus nulla vehicula. Pellentesque interdum nibh lacus efficitur quam quis elit dapibus, a finibus nulla vehicula. Pellentesque interdum nibh lacus"
+				/>
+
+				<InfosBloc image={picto2}
+							title="Lorem ipsum dolor"
+							description="Donec efficitur quam quis elit dapibus, a finibus nulla vehicula. Pellentesque interdum nibh lacus efficitur quam quis elit dapibus, a finibus nulla vehicula. Pellentesque interdum nibh lacus efficitur quam quis elit dapibus, a finibus nulla vehicula. Pellentesque interdum nibh lacus"
+				/>
+			</div>
+		</div>
+	</div>
+</section>
+
+<Band pdf={pdf} title='Lorem ipsum dolor' btnText='Télécharger la plaquette' bgImage={band}/>
 
 <section class="bg-white">
 	<div class="lg:grid lg:min-h-screen lg:grid-cols-12">

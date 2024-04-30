@@ -1,0 +1,25 @@
+---
+
+interface Props {
+	pdf: string;
+	title: string;
+	btnText: string;
+    bgImage: ImageMetadata;
+}
+
+const { pdf, title, btnText, bgImage } = Astro.props;
+
+console.log(bgImage.src)
+
+// TODO essayer de rendre dynamique
+
+// const classBg = 'bg-[url(' + bgImage.src + ')] ';
+
+---
+
+<section id="band" class="margin-block bg-[url('../images/band/band.png')] h-[350px] bg-cover bg-center bg-no-repeat">
+    <div class="bg-green/30 h-full w-full flex justify-center items-center flex-col gap-8">
+        <h2 class="text-center text-white text-3xl font-finalSixBlack">{title} </h2>
+        <a class="text-black font-finalSixBold bg-grey py-4 px-8 block w-fit rounded text-xl shadow-inner" href={pdf}> {btnText} </a>
+    </div>
+</section>

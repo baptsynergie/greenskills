@@ -1,0 +1,29 @@
+---
+
+import { Image } from 'astro:assets';
+
+interface Props {
+	image: ImageMetadata;
+	description: string;
+	title: string;
+}
+
+const { image, description, title } = Astro.props;
+
+---
+
+<div>
+    <div class="flex items-center gap-4 mb-4">
+        <div>
+            <Image
+            src={image}
+            alt="picto green skills"
+            width="50"
+            />
+        </div>
+        <div class="text-black text-2xl font-finalSixExtraBold">
+            {title}
+        </div>
+    </div>
+    <p class=" font-finalSixMedium text-black">{description}</p>
+</div>

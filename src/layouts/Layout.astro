@@ -25,3 +25,81 @@ const { title, description } = Astro.props;
 		<slot />
 	</body>
 </html>
+
+<style is:global>
+
+	@tailwind base;
+	@tailwind components;
+	@tailwind utilities;
+
+	/* font  */
+
+	@font-face {
+		font-family: 'FinalSix Heavy';
+		src: url('../../public/fonts/47585.otf') format('opentype');
+	}
+	@font-face {
+		font-family: 'FinalSix Thin';
+		src: url('../../public/fonts/47586.otf') format('opentype');
+	}
+	@font-face {
+		font-family: 'FinalSix Book';
+		src: url('../../public/fonts/47587.otf') format('opentype');
+	}
+	@font-face {
+		font-family: 'FinalSix ExtraBold';
+		src: url('../../public/fonts/47588.otf') format('opentype');
+	}
+	@font-face {
+		font-family: 'FinalSix Bold';
+		src: url('../../public/fonts/47589.otf') format('opentype');
+	}
+	@font-face {
+		font-family: 'FinalSix Hairline';
+		src: url('../../public/fonts/47590.otf') format('opentype');
+	}
+	@font-face {
+		font-family: 'FinalSix Black';
+		src: url('../../public/fonts/47591.otf') format('opentype');
+	}
+	@font-face {
+		font-family: 'FinalSix Light';
+		src: url('../../public/fonts/47592.otf') format('opentype');
+	}
+	@font-face {
+		font-family: 'FinalSix Medium';
+		src: url('../../public/fonts/47593.otf') format('opentype');
+	}
+
+
+	@layer components {
+		.container {
+			@apply max-w-[1240px] mr-auto ml-auto pr-[var(--h-padding)] pl-[var(--h-padding)]
+		}
+	}
+
+	:root {
+		--h-padding: 20px;
+        --blocks-gap: 60px;
+	}
+
+	.margin-block {
+		margin-top: var(--blocks-gap);
+	}
+
+	@media screen and (min-width: 768px) {
+			:global(:root) {
+			--blocks-gap: 100px;
+		}
+	}
+
+
+/* 	
+	.container {
+		max-width: 1240px;
+        margin-right: auto;
+        margin-left: auto;
+        padding-right: var(--h-padding);
+        padding-left: var(--h-padding);
+	} */
+</style>

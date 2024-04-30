@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
 import { db , Contact } from 'astro:db';
 
 const errors = {firstName: "", lastName: "", email: "", zipCode: "", phone: ""}
@@ -40,11 +41,11 @@ if(Astro.request.method === "POST") {
 			}
 		}
 
-		if(!error) {
-			// await db.insert(Contact).values({firstName, lastName, email, phone, zipcode });
-			// const contact = await db.select().from(Contact);
-			// console.log(contact);
-		}
+		// if(!error) {
+		// 	await db.insert(Contact).values({firstName, lastName, email, phone, zipcode });
+		// 	const contact = await db.select().from(Contact);
+		// 	console.log(contact);
+		// }
 
 	} catch (error: any) {
 		console.error(error.message);
@@ -53,7 +54,9 @@ if(Astro.request.method === "POST") {
 
 ---
 
-<Layout title="Welcome to Astro." description='meta description'>
+<Layout title="GreenSkills" description='meta description'>
+
+<Header title='Lorem ipsum dolor' description='Donec efficitur quam quis elit dapibus, a finibus nulla vehicula. Pellentesque interdum nibh lacus' href='#' />
 
 <section class="bg-white">
 	<div class="lg:grid lg:min-h-screen lg:grid-cols-12">

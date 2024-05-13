@@ -80,7 +80,9 @@ const { title, description } = Astro.props;
 
 	:root {
 		--h-padding: 20px;
-        --blocks-gap: 60px;
+        --blocks-gap: 100px;
+		--blocks-gap-demi: calc(var(--blocks-gap) / 2);
+		--blocks-gap-tremi: calc(var(--blocks-gap) / 3);
 	}
 
 	.margin-block {

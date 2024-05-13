@@ -8,10 +8,15 @@ import { Image } from 'astro:assets';
 
 import picto1 from '../images/pictos/picto_green1.svg';
 import picto2 from '../images/pictos/picto_green2.svg';
+import alveoles from '../images/pictos/alveoles.svg';
+import arrow from '../images/pictos/arrow.svg';
+import arrow2 from '../images/pictos/arrow2.svg';
 import team from '../images/qui-sommes-nous.jpg';
 import band from '../images/band/band.png';
 
 import pdf from '../../public/pdf/plan_accueil.pdf';
+
+import synergieLogo from '../images/logo_support/Logo Synergie Family 1 (1).png';
 
 
 
@@ -68,33 +73,129 @@ if(Astro.request.method === "POST") {
 
 <Layout title="GreenSkills" description='meta description'>
 
-<Header title='Lorem ipsum dolor' description='Donec efficitur quam quis elit dapibus, a finibus nulla vehicula. Pellentesque interdum nibh lacus' href='#' />
+<Header title="Impact l'avenir" description="Face aux enjeux liés à la transition énergétique pour les entreprises et aux besoins en visibilité et en main d'œuvre qualifiée sur les métiers de la transition écologique, Green Skills sensibilise, accompagne et oriente vers ces secteurs d'avenir." href='#' />
 
-<section id="who-whe-are" class="margin-block">
+<section id="who-whe-are" class="margin-block relative pb-[var(--blocks-gap)]">
+	<Image src={alveoles} alt="image de l'équipe" class="absolute bottom-0 right-0 z-0" />
+	<Image src={arrow} alt="image de l'équipe" class="absolute left-0 top-0 hidden lg:block" />
+	<Image src={arrow2} alt="image de l'équipe" class="absolute right-0 top-0 lg:hidden" />
 	<div class="container">
-		<h2 class="text-center text-black text-3xl font-finalSixBlack mb-[var(--blocks-gap)]">Qui sommes nous ? </h2>
-		<div class="content space-y-8 lg:flex lg:items-center lg:gap-8">
+		<h2 class="text-center text-black text-3xl font-finalSixBlack mb-[var(--blocks-gap-demi)]">Green Skills qu'est-ce que c'est ?</h2>
+		<div class="content space-y-8 lg:flex lg:items-center">
 
-			<div class="lg:flex-1 lg:order-2">
-				<Image src={team} alt="image de l'équipe" class="h-full w-full object-cover object-center rounded-xl" />
+			<div class="space-y-8 lg:flex-1 lg:space-y-0">
+				<InfosBloc image={picto1}
+							title="Votre partenaire d’emploi"
+							description="Greenskills est un projet de sensibilisation, de découverte par l’expérience et le « faire » et d’orientation de demandeurs d’emploi vers les nouveaux métiers verts liés à la transition écologique."
+				/>
 			</div>
 
-			<div class="space-y-8 lg:flex-1 lg:order-1">
-				<InfosBloc image={picto1}
-							title="Lorem ipsum dolor"
-							description="Donec efficitur quam quis elit dapibus, a finibus nulla vehicula. Pellentesque interdum nibh lacus efficitur quam quis elit dapibus, a finibus nulla vehicula. Pellentesque interdum nibh lacus efficitur quam quis elit dapibus, a finibus nulla vehicula. Pellentesque interdum nibh lacus"
-				/>
-
-				<InfosBloc image={picto2}
-							title="Lorem ipsum dolor"
-							description="Donec efficitur quam quis elit dapibus, a finibus nulla vehicula. Pellentesque interdum nibh lacus efficitur quam quis elit dapibus, a finibus nulla vehicula. Pellentesque interdum nibh lacus efficitur quam quis elit dapibus, a finibus nulla vehicula. Pellentesque interdum nibh lacus"
-				/>
+			<div class="lg:flex-1">
+				<Image src={team} alt="image de l'équipe" class="z-10 h-full w-full lg:w-2/3 lg:m-auto object-cover object-center rounded-xl" />
 			</div>
 		</div>
 	</div>
 </section>
 
-<Band pdf={pdf} title='Lorem ipsum dolor' btnText='Télécharger la plaquette' bgImage={band}/>
+<Band pdf={pdf} title="Envie d\'en savoir plus ?" btnText='Télécharger la plaquette' bgImage={band}/>
+
+<section id="support" class="margin-block overflow-hidden">
+	<div>
+		<h2 class="text-center text-black text-3xl font-finalSixBlack mb-[var(--blocks-gap-demi)]">Projet porté et soutenu par</h2>
+		<div class="slide-content overflow-hidden w-max flex items-center gap-4">
+			<div class="slide flex gap-4 w-max mb-[var(--blocks-gap)]">
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+			</div>
+
+			<div class="slide flex gap-4 w-max mb-[var(--blocks-gap)]">
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</section>
 
 <section class="bg-white">
 	<div class="lg:grid lg:min-h-screen lg:grid-cols-12">
@@ -277,5 +378,26 @@ if(Astro.request.method === "POST") {
   </section>
 	
 </Layout>
+
+<style>
+	.slide {
+		animation: scrollX 20s linear infinite;
+  		transform: translateY(-20%);
+	}
+
+	.slide div:nth-child(2n) {
+		transform: translateY(20%);
+	}
+
+	@keyframes scrollX {
+	0% {
+		transform: translate(0,0);
+	}
+	100% {
+		transform: translate(-100%,0);
+	}
+
+	}
+</style>
 
 

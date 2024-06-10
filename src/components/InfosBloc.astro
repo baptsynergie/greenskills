@@ -4,15 +4,15 @@ import { Image } from 'astro:assets';
 
 interface Props {
 	image: ImageMetadata;
-	description: string;
 	title: string;
+    list : string[];
 }
 
-const { image, description, title } = Astro.props;
+const { image, title,  list } = Astro.props;
 
 ---
 
-<div>
+<div class="mb-5">
     <div class="flex items-center gap-4 mb-4">
         <div>
             <Image
@@ -25,5 +25,9 @@ const { image, description, title } = Astro.props;
             {title}
         </div>
     </div>
-    <p class=" font-finalSixMedium text-black">{description}</p>
+    <ul class="list-disc list-inside font-finalSixMedium text-black">
+        {list.map((item) => (
+            <li><Fragment set:html={item} /></li>
+          ))}
+    </ul>
 </div>

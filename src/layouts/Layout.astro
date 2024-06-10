@@ -23,6 +23,7 @@ const { title, description } = Astro.props;
 	<body>
 		<Navbar />
 		<slot />
+		<script src="https://cdn.jsdelivr.net/gh/ArthurPDev/KreativeScroll@main/kreativetexte.js"></script>
 	</body>
 </html>
 
@@ -93,6 +94,11 @@ const { title, description } = Astro.props;
 			:global(:root) {
 			--blocks-gap: 100px;
 		}
+	}
+
+	#step-form {
+		background: rgb(0,191,99);
+		background: linear-gradient(180deg, rgba(0,191,99,1) 50%, rgba(255,255,255,1) 50%);
 	}
 
 

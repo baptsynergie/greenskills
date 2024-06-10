@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+	image: ImageMetadata;
+	date: string;
+	name: string;
+    description: string;
+    place: string;
+}
+
+const { image, date, name, description, place } = Astro.props;
+
+---
+
+
+<div class="shadow-lg rounded-xl transition-all hover:-translate-y-4">
+    <div class="h-[200px] lg:h-[200px] md:h-[400px]">
+        <Image src={image} alt="image évenement green skills" class="w-full h-full object-cover object-center rounded-t-xl" />
+    </div>
+    <div class="p-5 flex flex-col gap-2">
+        <div class="bg-green text-white p-2 w-fit rounded-lg font-finalSixMedium">
+            {date}
+        </div>
+        <h4 class="font-finalSixHeavy text-2xl">{name}</h4>
+        <p class="text-md">{description}</p>
+        <p class=" text-green">📍 {place} </p>
+    </div>
+
+</div>

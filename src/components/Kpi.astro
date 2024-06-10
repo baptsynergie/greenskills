@@ -1,0 +1,38 @@
+---
+
+import { Image } from 'astro:assets';
+import pictoHeart from '../images/kpi/picto_heart_white 1.svg';
+import pictoStorm from '../images/kpi/picto_storm_white 1.svg';
+import pictoLeaf from '../images/kpi/picto_leaf_white 1.svg';
+
+---
+
+<div class="lg:flex lg:justify-between">
+    <div class="flex gap-5 mt-5">
+        <div class="h-[70px] w-[70px]">
+            <Image src={pictoHeart} alt="picto coeur"  class="w-full h-full" />
+        </div>
+        <div>
+            <p class=" text-white font-finalSixHeavy text-4xl">6 610</p>
+            <p class=" text-white font-finalSixBold text-sm">Talents impactés par les projets d'inclusion de Synergie Family en 2023</p>
+        </div>
+    </div>
+    <div class="flex items-center gap-5 mt-5">
+        <div class="h-[70px] w-[70px]">
+            <Image src={pictoStorm} alt="picto coeur"  class="w-full h-full" />
+        </div>
+        <div>
+            <p class=" text-white font-finalSixHeavy text-4xl">500</p>
+            <p class=" text-white font-finalSixBold text-sm">Demandeurs d'emploi à sensibiliser d'ici fin 2025</p>
+        </div>
+    </div>
+    <div class="flex items-center gap-5 mt-5">
+        <div class="h-[70px] w-[70px]">
+            <Image src={pictoLeaf} alt="picto coeur" class="w-full h-full" />
+        </div>
+        <div>
+            <p class=" text-white font-finalSixHeavy text-4xl">150</p>
+            <p class=" text-white font-finalSixBold text-sm">Demandeurs d'emploi en formation ou en emploi d'ici décembre 2025</p>
+        </div>
+    </div>
+</div>

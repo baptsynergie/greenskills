@@ -6,16 +6,17 @@ interface Props {
 	title: string;
 	description: string;
 	href: string;
+    textCta: string;
 }
 
-const { href, title, description } = Astro.props;
+const { href, title, description, textCta } = Astro.props;
 
 ---
 
-<section id="header" class="pt-[var(--blocks-gap)] lg:mt-0 bg-right flex justify-center lg:items-center bg-no-repeat bg-cover bg-[url('../images/header-mobile.png')] lg:bg-[url('../images/header.png')] h-[100vh] lg:h-[500px]">
+<section id="header" class="pt-[var(--blocks-gap)] lg:pt-0 lg:mt-0 bg-right flex justify-center lg:items-center bg-no-repeat bg-cover bg-[url('../images/header-mobile.png')] lg:bg-[url('../images/header.png')] h-[100vh] lg:h-[500px]">
     <div class="container flex flex-col gap-4 lg:gap-6">
-        <h1 class="font-finalSixHeavy text-white text-4xl">{title}</h1>
-        <p class=" font-finalSixMedium text-white text-2xl lg:w-3/5">{description}</p>
-        <a class="text-black font-finalSixBold bg-grey py-4 px-8 block w-fit rounded text-xl shadow-inner" href="#"> Nous contacter </a>
+        <h1 class="font-finalSixHeavy example__slideAndRotate__text text-white text-4xl">{title}</h1>
+        <p class=" font-finalSixMedium text-white text-xl lg:w-3/5">{description}</p>
+        <a class="text-black font-finalSixBold bg-grey py-4 px-8 block w-fit rounded text-xl shadow-inner" href={href}> {textCta} </a>
     </div>
 </section>

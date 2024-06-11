@@ -1,0 +1,49 @@
+---
+import { Image } from "astro:assets";
+
+import logoGreenSkills from '../images/logos/logo_greenskills_blanc.svg';
+import alveoles from '../images/pictos/alveoles_footer.svg';
+import website from '../images/pictos/website.svg';
+import insta from '../images/pictos/insta.svg';
+import facebook from '../images/pictos/facebook.svg';
+import linkedin from '../images/pictos/linkedin.svg';
+
+let actuallyYear = new Date().getFullYear();
+---
+
+<footer class="bg-green relative pt-[var(--blocks-gap)]">
+
+    <div class="container">
+        <Image src={alveoles} alt="greenskills synergie family" class="absolute right-0 top-0"/>
+        <div class="mb-6">
+            <Image src={logoGreenSkills} alt="logo greenskills" width="185" height="68"/>
+        </div>
+
+        <div class="lg:flex items-center lg:justify-between">
+            <div>
+                <h4 class="mb-4 font-finalSixExtraBold text-white text-xl">La Newsletter</h4>
+                <div class="flex items-center mb-4">
+                    <label class="hidden" for="newsletter">La newsletter :</label>
+                    <div>
+                        <input placeholder="Votre email" type="email" name="newsletter" id="newsletter" class="bg-[#F3F3F3] text-[#9E9E9E] font-finalSixMedium outline-green outline-2 py-3 px-7 rounded-l-xl w-full">
+                    </div>
+                    <button class="font-finalSixMedium bg-black text-white py-3 px-7 rounded-r-xl"> Je m'inscris </button>
+                </div>
+            </div>
+            <div class="mb-[var(--blocks-gap)] lg:mb-0">
+                <ul class="flex items-center gap-7">
+                    <li><a href="https://synergiefamily.com/"><Image width="25" height="25" src={website} alt="picto site web synergie family" /></a></li>
+                    <li><a href="https://www.instagram.com/synergiefamily/"><Image width="25" height="25" src={insta} alt="picto instagram synergie family" /></a></li>
+                    <li><a href="https://www.facebook.com/synergiefamily/?locale=fr_FR"><Image width="25" height="25" src={facebook} alt="picto facebook synergie family" /></a></li>
+                    <li><a href="https://fr.linkedin.com/company/synergie-family"><Image width="25" height="25" src={linkedin} alt="picto linkedin synergie family" /></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="p-6">
+            <div class="text-center text-white font-finalSixBold text-lg">©{actuallyYear} - GreenSkills</div>
+            <div class="text-center font-finalSixBook text-sm underline text-white"><a href="#"> Mentions légales</a></div>
+        </div>
+
+    </div>
+</footer>

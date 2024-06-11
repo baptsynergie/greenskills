@@ -20,6 +20,15 @@ import synergieLogo from '../images/logo_support/Logo Synergie Family 1 (1).png'
 import Kpi from '../components/Kpi.astro';
 import EventCard from '../components/EventCard.astro';
 import StepForm from '../components/StepForm.astro';
+import Partners from '../components/Partners.astro';
+
+// img events
+
+import event1 from '../images/card_event/business_ble.png';
+import event2 from '../images/card_event/rencontre_metiers_verts.png';
+import event3 from '../images/card_event/eolien.png';
+import Footer from '../components/Footer.astro';
+
 
 
 const errors = {firstName: "", lastName: "", email: "", zipCode: "", phone: ""}
@@ -124,10 +133,11 @@ if(Astro.request.method === "POST") {
 </section>
 
 <section id="event" class="margin-block">
+	<h2 class="text-center text-black text-3xl font-finalSixBlack mb-[var(--blocks-gap-demi)]">Nos événements</h2>
 	<div class="container lg:flex lg:items-center lg:gap-20 space-y-8 lg:space-y-0 pb-[var(--blocks-gap)]">
-		<EventCard image={team} date="07/06/24" name="Nom de l'événement" place="L'Épopée village" description='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet mi at posuere scelerisque.' /> 
-		<EventCard image={team} date="07/06/24" name="Nom de l'événement" place="L'Épopée village" description='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet mi at posuere scelerisque.' /> 
-		<EventCard image={team} date="07/06/24" name="Nom de l'événement" place="L'Épopée village" description='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet mi at posuere scelerisque.' /> 
+		<EventCard image={event1} date="06/06/2024" name="Le business est dans le blé" place="Forum entreprises" description='Forum entreprises' /> 
+		<EventCard image={event2} date="06/06/2024" name="Rencontre et découverte des métiers verts" place="L'Épopée village" description='' /> 
+		<EventCard image={event3} date="01/07/2024" name="Semaine thématique autour des métiers de l’éolien" place="L'Épopée village" description='' /> 
 	</div>
 </section>
 
@@ -136,122 +146,14 @@ if(Astro.request.method === "POST") {
 <section id="support" class="margin-block overflow-hidden">
 	<div>
 		<h2 class="text-center text-black text-3xl font-finalSixBlack mb-[var(--blocks-gap-demi)]">Projet porté et soutenu par</h2>
-		<div class="slide-content overflow-hidden w-max flex items-center gap-4">
-			<div class="slide flex gap-4 w-max mb-[var(--blocks-gap)]">
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-			</div>
-
-			<div class="slide flex gap-4 w-max mb-[var(--blocks-gap)]">
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-				<div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
-					<Image src={synergieLogo} alt="logo synergie" class=" h-full w-full object-contain"/>
-				</div>
-			</div>
-		</div>
-
+		<Partners />
 	</div>
 </section>
+
+<Footer />
 	
 </Layout>
 
-<style>
-	.slide {
-		animation: scrollX 20s linear infinite;
-  		transform: translateY(-20%);
-	}
 
-	.slide div:nth-child(2n) {
-		transform: translateY(20%);
-	}
-
-	@keyframes scrollX {
-	0% {
-		transform: translate(0,0);
-	}
-	100% {
-		transform: translate(-100%,0);
-	}
-
-	}
-</style>
 
 

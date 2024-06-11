@@ -2,62 +2,20 @@
 
 import { Image } from "astro:assets";
 import logo from '../images/logos/logo_greenskills.svg';
+import logoSynergie from '../images/logos/logo_synergie.svg';
 
 ---
 
-<header class="bg-white">
-    <div class="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
-      <a class="block" href="#">
-        <Image src={logo} alt="logo green skills" width="120"/>
-      </a>
-  
-      <div class="flex flex-1 items-center justify-end md:justify-between">
-        <nav aria-label="Global" class="hidden md:block">
-          <ul class="flex items-center gap-6 text-sm">
-            <li>
-              <a class=" font-finalSixBook text-darkGrey transition hover:text-green/75" href="#"> About </a>
-            </li>
-  
-            <li>
-              <a class=" font-finalSixBook text-darkGrey transition hover:text-green/75" href="#"> Careers </a>
-            </li>
-  
-            <li>
-              <a class=" font-finalSixBook text-darkGrey transition hover:text-green/75" href="#"> History </a>
-            </li>
-  
-            <li>
-              <a class=" font-finalSixBook text-darkGrey transition hover:text-green/75" href="#"> Services </a>
-            </li>
-  
-            <li>
-              <a class=" font-finalSixBook text-darkGrey transition hover:text-green/75" href="#"> Projects </a>
-            </li>
-  
-            <li>
-              <a class=" font-finalSixBook text-darkGrey transition hover:text-green/75" href="#"> Blog </a>
-            </li>
-          </ul>
-        </nav>
-  
-        <div class="flex items-center gap-4">
-  
-          <button
-            class="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
-          >
-            <span class="sr-only">Toggle menu</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
+<header class="bg-white h-24 flex items-center justify-center">
+    <div class="flex justify-center items-center gap-8 px-4 sm:px-6 lg:px-8 w-full">
+      <div class="flex justify-center items-center gap-8 px-4 sm:px-6 lg:px-8 w-full">
+        <a class="block" href="#">
+          <Image src={logo} alt="logo green skills" width="120"/>
+        </a>
+        <div class="bg-green h-full w-[2px] py-6"></div>
+        <a class="block" href="#">
+          <Image src={logoSynergie} alt="logo green skills" width="120"/>
+        </a>
       </div>
     </div>
   </header>

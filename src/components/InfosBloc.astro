@@ -25,7 +25,7 @@ const { image, title,  list } = Astro.props;
             {title}
         </div>
     </div>
-    <ul class="list-disc list-inside font-finalSixMedium text-black">
+    <ul class="list-disc list-inside font-finalSixMedium text-black pl-5">
         {list.map((item) => (
             <li><Fragment set:html={item} /></li>
           ))}

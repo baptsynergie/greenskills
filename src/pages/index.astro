@@ -19,7 +19,7 @@ import pdf from '../../public/pdf/plan_accueil.pdf';
 import synergieLogo from '../images/logo_support/Logo Synergie Family 1 (1).png';
 import Kpi from '../components/Kpi.astro';
 import EventCard from '../components/EventCard.astro';
-import StepForm from '../components/StepForm.astro';
+import StepForm from '../components/StepForm.svelte';
 import Partners from '../components/Partners.astro';
 
 // img events
@@ -123,7 +123,7 @@ if(Astro.request.method === "POST") {
 	</div>
 </section>
 
-<StepForm />
+<StepForm client:only />
 
 <section class="bg-green py-[var(--blocks-gap)] margin-block">
 	<div class="container">

@@ -7,6 +7,7 @@
     let circles;
     let step = 1;
 
+    
     onMount(() => {
         circles = document.querySelectorAll('.step-circle');
         // Do something with nd, such as adding event listeners, styles, etc.
@@ -53,9 +54,9 @@
         <form class="shadow-lg bg-white lg:p-24 p-10 rounded-xl relative">
 
             {#if step === 1} 
-                <div id="step_one">
+                <div id="step_one" class="lg:h-[380px]">
 
-                    <h1 class=" font-finalSixMedium text-lg text-center mb-12">À la recherche d’un nouveau défi professionnel ?</h1>
+                    <h1 class=" flex items-center gap-4 font-finalSixMedium text-lg text-center mb-12"><span class="text-white w-[45px] h-[45px] hidden lg:block bg-green p-2 rounded-full">{step}.</span> À la recherche d’un nouveau défi professionnel ?</h1>
 
                     <div class="lg:flex lg:items-center lg:gap-5 mb-7">
                         <div class="lg:w-1/2 mb-7 lg:mb-0">
@@ -95,9 +96,9 @@
             {/if}
 
             {#if step === 2} 
-                <div id="step_two">
+                <div id="step_two" class="lg:h-[380px]">
 
-                    <h1 class=" font-finalSixMedium text-lg text-center mb-12">Laissez-nous en savoir un peu plus...</h1>
+                    <h1 class=" flex items-center gap-4 font-finalSixMedium text-lg text-center mb-12"><span class="text-white w-[45px] h-[45px] hidden lg:block bg-green p-2 rounded-full">{step}.</span> Laissez-nous en savoir un peu plus...</h1>
 
                     <div class="lg:w-full mb-7">
                         <label class="hidden" for="situation">Je suis </label>
@@ -134,21 +135,26 @@
                     </div>
 
                     <div class="lg:flex lg:justify-between lg:items-center mt-7 lg:mt-0">
-                        <div>
+                        <div class="mb-7 lg_mb-0">
                             <input type="checkbox" id="cgv" name="scales" required />
                              <label class="font-finalSixMedium text-sm" for="cgv">En envoyant ce formulaire, j’accepte que la team Green Skills me recontacte.</label>
                         </div>
-                        <button class="mt-7 font-finalSixMedium bg-green text-white rounded-lg py-3 px-8" on:click|preventDefault={(e) => { changeColorCircle(e); changeStep(3); }}>Valider le formulaire</button>
+                        <div class="flex flex-col lg:flex-row lg:gap-2 gap-4">
+                            <button class="lg:mt-7 font-finalSixMedium border-green border-solid border-[2px] text-green bg-white  rounded-lg py-3 px-8" on:click|preventDefault={(e) => { changeColorCircle(e); changeStep(1); }}>Retour</button>
+                            <button class="lg:mt-7 font-finalSixMedium bg-green text-white rounded-lg py-3 px-8" on:click|preventDefault={(e) => { changeColorCircle(e); changeStep(3); }}>Valider le formulaire</button>
+                        </div>
                     </div>
                 </div>
             {/if}
 
             {#if step === 3} 
-                <div id="step_tkyou">
+                <div id="step_tkyou" class="lg:h-[380px] h-[455px]">
 
                     <img alt="greens skills synergie family" src="src/images/pictos/alveole_tkpage.svg" class="absolute top-0 right-0" />
-                    <div class="text-green uppercase font-finalSixHeavy text-8xl text-center">Merci !</div>
-                    <div class=" font-finalSixMedium text-black text-lg text-center">Notre équipe vous recontactera dès que possible</div>
+                    <div class="flex flex-col justify-center items-center h-full">
+                        <div class="text-green uppercase font-finalSixHeavy text-8xl text-center">Merci !</div>
+                        <div class=" font-finalSixMedium text-black text-lg text-center">Notre équipe vous recontactera dès que possible</div>
+                    </div>
                 </div>
             {/if}
             

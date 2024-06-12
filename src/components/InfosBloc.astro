@@ -12,7 +12,7 @@ const { image, title,  list } = Astro.props;
 
 ---
 
-<div class="mb-5">
+<div class="mb-5" data-aos="fade-up">
     <div class="flex items-center gap-4 mb-4">
         <div>
             <Image
@@ -31,3 +31,12 @@ const { image, title,  list } = Astro.props;
           ))}
     </ul>
 </div>
+
+<script>
+    // @ts-ignore
+   import AOS from "aos"; 
+   
+   document.addEventListener('astro:afterload', () => {
+     AOS.refresh();
+   });
+</script>

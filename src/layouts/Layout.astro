@@ -1,6 +1,7 @@
 ---
 
 import Navbar from '../components/Navbar.astro';
+import 'aos/dist/aos.css'; 
 
 interface Props {
 	title: string;
@@ -8,6 +9,7 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+
 ---
 
 <!doctype html>
@@ -24,6 +26,30 @@ const { title, description } = Astro.props;
 		<Navbar />
 		<slot />
 		<script src="https://cdn.jsdelivr.net/gh/ArthurPDev/KreativeScroll@main/kreativetexte.js"></script>
+		<script> 
+			// @ts-ignore
+			import AOS from "aos"; 
+			import Lenis from 'lenis'
+			AOS.init({
+				// once : true
+				offset : window.innerHeight / 3,
+				disable: 'mobile',
+				once: true,
+			}); 
+
+			const lenis = new Lenis()
+
+			lenis.on('scroll', (e:any) => {
+			console.log(e)
+			})
+
+			function raf(time:any) {
+			lenis.raf(time)
+			requestAnimationFrame(raf)
+			}
+
+			requestAnimationFrame(raf)
+		  </script>
 	</body>
 </html>
 
@@ -99,6 +125,26 @@ const { title, description } = Astro.props;
 	#step-form {
 		background: rgb(0,191,99);
 		background: linear-gradient(180deg, rgba(0,191,99,1) 50%, rgba(255,255,255,1) 50%);
+	}
+
+	html.lenis, html.lenis body {
+	height: auto;
+	}
+
+	.lenis.lenis-smooth {
+	scroll-behavior: auto !important;
+	}
+
+	.lenis.lenis-smooth [data-lenis-prevent] {
+	overscroll-behavior: contain;
+	}
+
+	.lenis.lenis-stopped {
+	overflow: hidden;
+	}
+
+	.lenis.lenis-smooth iframe {
+	pointer-events: none;
 	}
 
 

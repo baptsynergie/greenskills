@@ -7,11 +7,8 @@ import InfosBloc from '../components/InfosBloc.astro';
 import { Image } from 'astro:assets';
 
 import picto1 from '../images/pictos/picto_green1.svg';
-import picto2 from '../images/pictos/picto_green2.svg';
 import alveoles from '../images/pictos/alveoles.svg';
-import arrow from '../images/pictos/arrow.svg';
-import arrow2 from '../images/pictos/arrow2.svg';
-import team from '../images/qui-sommes-nous.jpg';
+import team from '../images/qui-sommes-nous.png';
 import band from '../images/band/band.png';
 
 import pdf from '../../public/pdf/plan_accueil.pdf';
@@ -29,6 +26,9 @@ import event2 from '../images/card_event/rencontre_metiers_verts.png';
 import event3 from '../images/card_event/eolien.png';
 import Footer from '../components/Footer.astro';
 
+import pictoLight from '../images/pictos/picto_light.svg';
+import BlocProgram from '../components/BlocProgram.astro';
+
 
 
 const errors = {firstName: "", lastName: "", email: "", zipCode: "", phone: ""}
@@ -42,6 +42,12 @@ const list1 = [
 
 const list2 = [
 	'<span class=" font-finalSixExtraBold">Bouches-du-Rhône :</span> avec un focus sur les bassins d’emploi de Marseille, Étang de Berre et Fos/Gardanne',
+]
+
+const listProgram = [
+	'Ateliers “Découverte Métiers” dans des événements et forums emploi',
+	'Accompagnement personnalisé des candidats intéressés',
+	'Immersions, découverte des entreprises et de leurs métiers, événements de recrutements ludiques',
 ]
 
 
@@ -104,14 +110,15 @@ if(Astro.request.method === "POST") {
 	<!-- <Image src={arrow} alt="image de l'équipe" class="absolute left-0 top-0 hidden lg:block" />
 	<Image src={arrow2} alt="image de l'équipe" class="absolute right-0 top-0 lg:hidden" /> -->
 	<div class="container">
-		<h2 class="text-center text-black text-3xl font-finalSixBlack mb-[var(--blocks-gap-demi)]">Green Skills, un outil qui répond aux besoins en recrutement sur ces métiers nouveaux ou en pleine transformation.</h2>
-		<div class="content space-y-8 lg:space-y-0 lg:flex">
+		<h2 class="text-center text-black text-3xl font-finalSixBlack mb-5">Green Skills</h2>
+		<h3 class="mb-[var(--blocks-gap-demi)] lg:w-7/12 lg:mx-auto font-finalSixMedium text-2xl text-center"> le programme qui répond à vos besoins en recrutement sur ces métiers nouveaux ou en pleine transformation.</h3>
+		<div class="content space-y-8 lg:space-y-0 lg:flex lg:items-center lg:gap-14">
 
-			<div class="lg:flex-1">
-				<Image src={team} alt="image de l'équipe" class="z-10 h-full w-full lg:w-2/3 lg:m-auto object-cover object-center rounded-xl" />
+			<div class="lg:flex-[2_2_0%] h-[365px]">
+				<Image src={team} alt="image de l'équipe" class=" drop-shadow-lg z-10 h-full w-full object-cover object-center rounded-xl" />
 			</div>
 
-			<div class="lg:flex-1 lg:space-y-0 relative z-10">
+			<div class="lg:flex-[5_5_0%] lg:space-y-0 relative z-10">
 				<InfosBloc image={picto1}
 							title="Les métiers verts éligibles au FTJ Green Skills" list={list1}
 				/>
@@ -120,17 +127,19 @@ if(Astro.request.method === "POST") {
 				/>
 			</div>
 		</div>
+
+		<BlocProgram picto={pictoLight} title='Au programme...' list={listProgram} />
+	</div>
+</section>
+
+<section class="bg-[#F7F7F7] py-[var(--blocks-gap)]">
+	<div class="container">
+		<h2 class=" text-green text-3xl font-finalSixBlack mb-[var(--blocks-gap-demi)]">Les chiffres clés</h2>
+		<Kpi />
 	</div>
 </section>
 
 <StepForm client:only />
-
-<section class="bg-green py-[var(--blocks-gap)] margin-block">
-	<div class="container">
-		<h2 class=" text-white text-3xl font-finalSixBlack mb-[var(--blocks-gap-demi)]">Les chiffres clés</h2>
-		<Kpi />
-	</div>
-</section>
 
 <section id="event" class="margin-block">
 	<h2 class="text-center text-black text-3xl font-finalSixBlack mb-[var(--blocks-gap-demi)]">Nos événements</h2>

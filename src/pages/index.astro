@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Band from '../components/Band.astro';
-import { db , Contact } from 'astro:db';
+// import { db , Contact } from 'astro:db';
 import InfosBloc from '../components/InfosBloc.astro';
 import { Image } from 'astro:assets';
 
@@ -16,7 +16,7 @@ import pdf from '../../public/pdf/greenskills.pdf';
 import synergieLogo from '../images/logo_support/Logo Synergie Family 1 (1).png';
 import Kpi from '../components/Kpi.astro';
 import EventCard from '../components/EventCard.astro';
-import StepForm from '../components/StepForm.svelte';
+import StepForm from '../components/StepForm.astro';
 import Partners from '../components/Partners.astro';
 
 // img events
@@ -111,7 +111,7 @@ if(Astro.request.method === "POST") {
 	<Image src={arrow2} alt="image de l'équipe" class="absolute right-0 top-0 lg:hidden" /> -->
 	<div class="container">
 		<h2 class="text-center text-black text-3xl font-finalSixBlack mb-5">Green Skills</h2>
-		<h3 class="mb-[var(--blocks-gap-demi)] lg:w-7/12 lg:mx-auto font-finalSixMedium text-2xl text-center"> le programme qui répond à vos besoins en recrutement sur ces métiers nouveaux ou en pleine transformation.</h3>
+		<h3 class="mb-[var(--blocks-gap-demi)] lg:w-7/12 lg:mx-auto font-finalSixMedium text-2xl text-center"> le programme qui répond à vos besoins en recrutement sur ces nouveaux métiers ou en pleine transformation.</h3>
 		<div class="content space-y-8 lg:space-y-0 lg:flex lg:items-center lg:gap-14">
 
 			<div class="lg:flex-[2_2_0%] h-[365px]">
@@ -139,7 +139,7 @@ if(Astro.request.method === "POST") {
 	</div>
 </section>
 
-<StepForm client:only />
+<StepForm />
 
 <section id="event" class="margin-block">
 	<h2 class="text-center text-black text-3xl font-finalSixBlack mb-[var(--blocks-gap-demi)]">Nos événements</h2>

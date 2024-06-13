@@ -1,33 +1,6 @@
-<script>
+---
 
-    import { onMount } from "svelte";
-
-    let circles;
-    let step = 1;
-
-    
-    onMount(() => {
-        circles = document.querySelectorAll('.step-circle');
-        // Do something with nd, such as adding event listeners, styles, etc.
-    });
-
-    function changeColorCircle(event) {
-        let target = event.target;
-        if(!target.classList.contains("active")) {
-            target.classList.add("active");
-            circles.forEach(element => {
-                if(element !== target) {
-                    element.classList.remove("active")
-                }
-            });
-        }
-    }
-
-    function changeStep(number) {
-        step = number;
-    }
-
-</script>
+---
 
 <section id="step-form" class="pt-[var(--blocks-gap)]">
     <div class="container">
@@ -40,21 +13,21 @@
                 <h2 class="text-white text-3xl font-finalSixBlack">Contactez-nous</h2>
             </div>
             <div class="flex items-center">
-                <button  class={`border-white border-solid border-[2px] w-[30px] h-[30px] rounded-full cursor-pointer step-circle ${step === 1 ? 'active' : ''}`} on:click|preventDefault={(e) => { changeColorCircle(e); changeStep(1); }}></button>
+                <button  class='border-white border-solid border-[2px] w-[30px] h-[30px] rounded-full cursor-pointer step-circle active'></button>
                 <div class="bg-white w-[60px] h-[2px]"></div>
-                <button class={`border-white border-solid border-[2px] w-[30px] h-[30px] rounded-full cursor-pointer step-circle ${step === 2 ? 'active' : ''}`} on:click|preventDefault={(e) => { changeColorCircle(e); changeStep(2); }}></button>
+                <button class="border-white border-solid border-[2px] w-[30px] h-[30px] rounded-full cursor-pointer step-circle"></button>
                 <div class="bg-white w-[60px] h-[2px]"></div>
-                <button class={`border-white border-solid border-[2px] w-[30px] h-[30px] rounded-full cursor-pointer step-circle ${step === 3 ? 'active' : ''}`} on:click|preventDefault={(e) => { changeColorCircle(e); changeStep(3); }}></button>
+                <button class="border-white border-solid border-[2px] w-[30px] h-[30px] rounded-full cursor-pointer step-circle"></button>
             </div>
         </div>
         
 
         <form class="shadow-lg bg-white lg:p-24 p-10 rounded-xl relative">
 
-            {#if step === 1} 
-                <div id="step_one" class="lg:h-[380px]">
+           
+                <div id="step_one" class="active-step js-step lg:h-[380px]">
 
-                    <h1 class=" flex items-center gap-4 font-finalSixMedium text-lg text-center mb-12"><span class="text-white w-[45px] h-[45px] hidden lg:block bg-green p-2 rounded-full">{step}.</span> À la recherche d’un nouveau défi professionnel ?</h1>
+                    <h1 class=" flex items-center gap-4 font-finalSixMedium text-lg text-center mb-12"><span class="text-white w-[45px] h-[45px] hidden lg:block bg-green p-2 rounded-full">1.</span> À la recherche d’un nouveau défi professionnel ?</h1>
 
                     <div class="lg:flex lg:items-center lg:gap-5 mb-7">
                         <div class="lg:w-1/2 mb-7 lg:mb-0">
@@ -87,16 +60,16 @@
                     
                     <div class="lg:flex lg:justify-between lg:items-center mt-7 lg:mt-0">
                         <p class="text-[#9E9E9E] font-finalSixMedium">Champs obligatoires(*)</p>
-                        <button class="js-next-btn mt-7 font-finalSixMedium bg-green text-white rounded-lg py-3 px-8" on:click|preventDefault={() => { changeStep(2); }}>Continuer</button>
+                        <button class="js-next-btn mt-7 font-finalSixMedium bg-green text-white rounded-lg py-3 px-8">Continuer</button>
                     </div>
 
                 </div>
-            {/if}
+   
 
-            {#if step === 2} 
-                <div id="step_two" class="lg:h-[380px]">
+           
+                <div id="step_two" class="js-step hidden lg:h-[380px]">
 
-                    <h1 class=" flex items-center gap-4 font-finalSixMedium text-lg text-center mb-12"><span class="text-white w-[45px] h-[45px] hidden lg:block bg-green p-2 rounded-full">{step}.</span> Laissez-nous en savoir un peu plus...</h1>
+                    <h1 class=" flex items-center gap-4 font-finalSixMedium text-lg text-center mb-12"><span class="text-white w-[45px] h-[45px] hidden lg:block bg-green p-2 rounded-full">2.</span> Laissez-nous en savoir un peu plus...</h1>
 
                     <div class="lg:w-full mb-7">
                         <label class="hidden" for="situation">Je suis </label>
@@ -138,31 +111,91 @@
                              <label class="font-finalSixMedium text-sm" for="cgv">En envoyant ce formulaire, j’accepte que la team Green Skills me recontacte.</label>
                         </div>
                         <div class="flex flex-col lg:flex-row lg:gap-2 gap-4">
-                            <button class="lg:mt-7 font-finalSixMedium border-green border-solid border-[2px] text-green bg-white  rounded-lg py-3 px-8" on:click|preventDefault={(e) => { changeColorCircle(e); changeStep(1); }}>Retour</button>
-                            <button class="lg:mt-7 font-finalSixMedium bg-green text-white rounded-lg py-3 px-8" on:click|preventDefault={(e) => { changeColorCircle(e); changeStep(3); }}>Valider le formulaire</button>
+                            <button class="js-btn-back lg:mt-7 font-finalSixMedium border-green border-solid border-[2px] text-green bg-white  rounded-lg py-3 px-8">Retour</button>
+                            <button class="lg:mt-7 font-finalSixMedium bg-green text-white rounded-lg py-3 px-8">Valider le formulaire</button>
                         </div>
                     </div>
                 </div>
-            {/if}
+        
 
-            {#if step === 3} 
-                <div id="step_tkyou" class="lg:h-[380px] h-[455px]">
+        
+            <div id="step_tkyou" class="js-step hidden lg:h-[380px] h-[455px]">
 
-                    <img alt="greens skills synergie family" src="src/images/pictos/alveole_tkpage.svg" class="absolute top-0 right-0" />
-                    <div class="flex flex-col justify-center items-center h-full">
-                        <div class="text-green uppercase font-finalSixHeavy text-8xl text-center">Merci !</div>
-                        <div class=" font-finalSixMedium text-black text-lg text-center">Notre équipe vous recontactera dès que possible</div>
-                    </div>
+                <img alt="greens skills synergie family" src="src/images/pictos/alveole_tkpage.svg" class="absolute top-0 right-0" />
+                <div class="flex flex-col justify-center items-center h-full">
+                    <div class="text-green uppercase font-finalSixHeavy text-8xl text-center">Merci !</div>
+                    <div class=" font-finalSixMedium text-black text-lg text-center">Notre équipe vous recontactera dès que possible</div>
                 </div>
-            {/if}
+            </div>
+        
             
         </form>
     </div>
 </section>
+
+<script>
+
+    const circles = document.querySelectorAll('.step-circle');
+    const steps = document.querySelectorAll('.js-step');
+    const btnContinue = document.querySelector('.js-next-btn');
+    const backBtn = document.querySelector('.js-btn-back');
+
+    function changeColorCircle(event: any) {
+        let target = event.target;
+        if(!target.classList.contains("active")) {
+            target.classList.add("active");
+            circles.forEach(element => {
+                if(element !== target) {
+                    element.classList.remove("active")
+                }
+            });
+        }
+    }
+
+    circles.forEach((item) => {
+        item.addEventListener("click" , (e) => {
+            changeColorCircle(e);
+        })
+    })
+
+    btnContinue?.addEventListener("click" , (e) => {
+        e.preventDefault();
+        let step_two = document.querySelector('#step_two');
+        step_two?.classList.remove('hidden');
+        step_two?.classList.add('active-step');
+        steps.forEach((item) => {
+            if(item !== step_two && item.classList.contains("active-step")) {
+                item.classList.remove('active-step');
+                item.classList.add('hidden');
+            }
+        })
+    })
+
+    backBtn?.addEventListener("click" , (e) => {
+        e.preventDefault();
+        let step_one = document.querySelector('#step_one');
+        step_one?.classList.remove('hidden');
+        step_one?.classList.add('active-step');
+        steps.forEach((item) => {
+            if(item !== step_one && item.classList.contains("active-step")) {
+                item.classList.remove('active-step');
+                item.classList.add('hidden');
+            }
+        })
+    })
+
+</script>
 
 <style>
     .active {
         background-color: white;
         transition: all .2s ease;
     }
+
+    .active-step {
+        display: block;
+    }
+
+
+
 </style>

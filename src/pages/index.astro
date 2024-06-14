@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Band from '../components/Band.astro';
-// import { db , Contact } from 'astro:db';
 import InfosBloc from '../components/InfosBloc.astro';
 import { Image } from 'astro:assets';
 
@@ -30,9 +29,6 @@ import pictoLight from '../images/pictos/picto_light.svg';
 import BlocProgram from '../components/BlocProgram.astro';
 
 
-
-const errors = {firstName: "", lastName: "", email: "", zipCode: "", phone: ""}
-
 const list1 = [
 	'<span class=" font-finalSixExtraBold">Secteur de l’énergie verte :</span> nouveaux systèmes industriels et énergies renouvelables (éolien en mer, hydrogène vert, photovoltaïque, biogaz & biomasse...)',
 	'<span class=" font-finalSixExtraBold">Économie circulaire : </span>recyclage, traitement et transformation des déchets du bâtiment, de la mer)'
@@ -51,54 +47,6 @@ const listProgram = [
 ]
 
 
-if(Astro.request.method === "POST") {
-	try {
-
-		console.log("on passe la")
-		const data = await Astro.request.formData();
-		const firstName = data.get("first_name");
-		const lastName = data.get("last_name");
-		const email = data.get("email");
-		const zipcode = data.get("zipcode");
-		const phone = data.get("phone");
-
-		let error: boolean = false;
-
-		if (typeof firstName !== "string" || firstName.length < 1) {
-			errors.firstName = "Veuillez saisir votre prénom."
-		}
-		if (typeof lastName !== "string" || lastName.length < 1) {
-			errors.lastName = "Veuillez saisir votre nom."
-		}
-		if (typeof email !== "string" || email.length < 1) {
-			errors.email = "Veuillez saisir votre email."
-		}
-		if (typeof zipcode !== "string" || zipcode.length < 1) {
-			errors.zipCode = "Veuillez saisir votre code postal."
-		}
-		if (typeof phone !== "string" || phone.length < 1) {
-			errors.firstName = "Veuillez saisir votre prénom."
-		}
-
-		for (const [key, value] of Object.entries(errors)) {
-			if(value !== '') {
-				error = true;
-			}
-		}
-
-		// if(!error) {
-		// 	await db.insert(Contact).values({firstName, lastName, email, phone, zipcode });
-		// 	const contact = await db.select().from(Contact);
-		// 	console.log(contact);
-		// }
-
-	} catch (error: any) {
-		console.error(error.message);
-	}
-}
-
-
-
 ---
 
 <Layout title="GreenSkills" description='meta description'>
@@ -111,7 +59,8 @@ if(Astro.request.method === "POST") {
 	<Image src={arrow2} alt="image de l'équipe" class="absolute right-0 top-0 lg:hidden" /> -->
 	<div class="container">
 		<h2 class="text-center text-black text-3xl font-finalSixBlack mb-5">Green Skills</h2>
-		<h3 class="mb-[var(--blocks-gap-demi)] lg:w-7/12 lg:mx-auto font-finalSixMedium text-2xl text-center"> le programme qui répond à vos besoins en recrutement sur ces nouveaux métiers ou en pleine transformation.</h3>
+		<h3 class="mb-[var(--blocks-gap-demi)] lg:w-7/12 lg:mx-auto font-finalSixMedium text-2xl text-center"> c'est le programme qui répond aux besoins en recrutement
+			sur ces nouveaux métiers en pleine transformation.</h3>
 		<div class="content space-y-8 lg:space-y-0 lg:flex lg:items-center lg:gap-14">
 
 			<div class="lg:flex-[2_2_0%] h-[365px]">

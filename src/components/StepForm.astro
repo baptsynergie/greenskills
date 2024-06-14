@@ -22,7 +22,7 @@
         </div>
         
 
-        <form class="shadow-lg bg-white lg:p-24 p-10 rounded-xl relative">
+        <form class="shadow-lg bg-white lg:p-24 p-10 rounded-xl relative" action="/api/talentRegister" method="post"> 
 
            
                 <div id="step_one" class="active-step js-step lg:h-[380px]">
@@ -72,8 +72,8 @@
                     <h1 class=" flex items-center gap-4 font-finalSixMedium text-lg text-center mb-12"><span class="text-white w-[45px] h-[45px] hidden lg:block bg-green p-2 rounded-full">2.</span> Laissez-nous en savoir un peu plus...</h1>
 
                     <div class="lg:w-full mb-7">
-                        <label class="hidden" for="situation">Je suis </label>
-                        <select name="situation" class="bg-[#F3F3F3] text-[#9E9E9E] font-finalSixMedium outline-green outline-2 py-3 px-8 rounded-lg w-full">
+                        <label class="hidden" for="position">Je suis </label>
+                        <select name="position" class="bg-[#F3F3F3] text-[#9E9E9E] font-finalSixMedium outline-green outline-2 py-3 px-8 rounded-lg w-full">
                             <option value="">Je suis...</option>
                                 <option value="A la recherche d’un premier travail">A la recherche d’un premier travail</option>
                                 <option value="En reconversion professionnelle et intéressé.e par les métiers verts.">En reconversion professionnelle et intéressé.e par les métiers verts.</option>
@@ -82,8 +82,8 @@
                         </select>
                     </div>
                     <div class="lg:w-full mb-7">
-                        <label class="hidden" for="school_level">Je suis </label>
-                        <select name="school_level" class="bg-[#F3F3F3] text-[#9E9E9E] font-finalSixMedium outline-green outline-2 py-3 px-8 rounded-lg w-full">
+                        <label class="hidden" for="study">Je suis </label>
+                        <select name="study" class="bg-[#F3F3F3] text-[#9E9E9E] font-finalSixMedium outline-green outline-2 py-3 px-8 rounded-lg w-full">
                             <option value="">Quel est votre niveau d'études ?</option>
                                 <option value="Infra Bac">Infra Bac</option>
                                 <option value="Bac professionnel">Bac professionnel</option>
@@ -92,8 +92,8 @@
                         </select>
                     </div>
                     <div class="lg:w-full mb-7">
-                        <label class="hidden" for="how_know">Je suis </label>
-                        <select name="how_know" class="bg-[#F3F3F3] text-[#9E9E9E] font-finalSixMedium outline-green outline-2 py-3 px-8 rounded-lg w-full">
+                        <label class="hidden" for="howHearAboutUs">Je suis </label>
+                        <select name="howHearAboutUs" class="bg-[#F3F3F3] text-[#9E9E9E] font-finalSixMedium outline-green outline-2 py-3 px-8 rounded-lg w-full">
                             <option value="">Comment avez-vous entendu parler de notre programme ?</option>
                                 <option value="France Travail">France Travail</option>
                                 <option value="APEC">APEC</option>
@@ -107,8 +107,8 @@
 
                     <div class="lg:flex lg:justify-between lg:items-center mt-7 lg:mt-0">
                         <div class="mb-7 lg_mb-0">
-                            <input type="checkbox" id="cgv" name="scales" required />
-                             <label class="font-finalSixMedium text-sm" for="cgv">En envoyant ce formulaire, j’accepte que la team Green Skills me recontacte.</label>
+                            <input type="checkbox" id="isOptin" name="isOptin" required />
+                             <label class="font-finalSixMedium text-sm" for="isOptin">En envoyant ce formulaire, j’accepte que la team Green Skills me recontacte.</label>
                         </div>
                         <div class="flex flex-col lg:flex-row lg:gap-2 gap-4">
                             <button class="js-btn-back lg:mt-7 font-finalSixMedium border-green border-solid border-[2px] text-green bg-white  rounded-lg py-3 px-8">Retour</button>
@@ -116,18 +116,6 @@
                         </div>
                     </div>
                 </div>
-        
-
-        
-            <div id="step_tkyou" class="js-step hidden lg:h-[380px] h-[455px]">
-
-                <img alt="greens skills synergie family" src="src/images/pictos/alveole_tkpage.svg" class="absolute top-0 right-0" />
-                <div class="flex flex-col justify-center items-center h-full">
-                    <div class="text-green uppercase font-finalSixHeavy text-8xl text-center">Merci !</div>
-                    <div class=" font-finalSixMedium text-black text-lg text-center">Notre équipe vous recontactera dès que possible</div>
-                </div>
-            </div>
-        
             
         </form>
     </div>

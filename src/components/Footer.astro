@@ -23,11 +23,14 @@ let actuallyYear = new Date().getFullYear();
             <div>
                 <h4 class="mb-4 font-finalSixExtraBold text-white text-xl">La Newsletter</h4>
                 <div class="flex items-center mb-4">
-                    <label class="hidden" for="newsletter">La newsletter :</label>
-                    <div>
-                        <input placeholder="Votre email" type="email" name="newsletter" id="newsletter" class="bg-[#F3F3F3] text-[#9E9E9E] font-finalSixMedium outline-green outline-2 py-3 px-7 rounded-l-xl w-full">
-                    </div>
-                    <button class="font-finalSixMedium bg-black text-white py-3 px-7 rounded-r-xl"> Je m'inscris </button>
+                    <!-- TODO faire une requete ajax plutot -->
+                    <form action="/api/newsletter" class="flex items-center mb-4" method="POST">
+                        <label class="hidden" for="email">La newsletter :</label>
+                        <div>
+                            <input placeholder="Votre email" type="email" name="email" id="newsletter" class="bg-[#F3F3F3] text-[#9E9E9E] font-finalSixMedium outline-green outline-2 py-3 px-7 rounded-l-xl w-full">
+                        </div>
+                        <button class="font-finalSixMedium bg-black text-white py-3 px-7 rounded-r-xl"> Je m'inscris </button>
+                    </form>
                 </div>
             </div>
             <div class="mb-[var(--blocks-gap)] lg:mb-0">

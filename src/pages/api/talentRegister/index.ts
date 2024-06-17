@@ -4,7 +4,6 @@ import { getFirestore } from "firebase-admin/firestore";
 
 export const POST: APIRoute = async ({ request, redirect }) => {
     const formData = await request.formData();
-    console.log(formData);
     const lastName = formData.get("lastname")?.toString();
     const firstName = formData.get("firstname")?.toString();
     const email = formData.get("email")?.toString();
@@ -15,9 +14,7 @@ export const POST: APIRoute = async ({ request, redirect }) => {
     const howHearAboutUs = formData.get("howHearAboutUs")?.toString();
     const isOptin = formData.get("isOptin");
     
-    
-    console.log(firstName, lastName)
-    if (!firstName || !lastName) {
+    if (!firstName || !lastName || !email || !phone || !city) {
       return new Response("Missing required fields", {
         status: 400,
       });

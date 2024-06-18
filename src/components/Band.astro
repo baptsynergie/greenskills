@@ -1,0 +1,122 @@
+---
+
+interface Props {
+	pdf: string;
+	title: string;
+	btnText: string;
+    bgImage: ImageMetadata;
+}
+
+const { pdf, title, btnText, bgImage } = Astro.props;
+
+console.log(bgImage.src)
+
+// TODO essayer de rendre dynamique
+
+// const classBg = 'bg-[url(' + bgImage.src + ')] ';
+
+---
+
+<section id="band" class="bg-[url('../images/band/band.png')] h-[350px] bg-cover bg-center bg-no-repeat">
+    <div class="bg-green/30 h-full w-full flex justify-center items-center flex-col gap-8">
+        <h2 class="text-center text-white text-3xl font-finalSixBlack">{title} </h2>
+        <a data-aos="zoom-in" class="js-dl text-black font-finalSixBold bg-grey py-4 px-8 block w-fit rounded text-xl shadow-inner" href={pdf}> {btnText} </a>
+    </div>
+    <div id="modale" class="flex transition-all invisible opacity-0 justify-center items-center fixed top-0 modale h-[100vh] w-full z-30 bg-black/30">
+        <div class="relative font-finalSixMedium lg:h-[380px] container rounded-xl lg:p-24 p-10 flex-col lg:flex-row flex items-center justify-center p-30 bg-white shadow-lg">
+            <svg id="cross" class=" self-end cursor-pointer lg:absolute lg:top-5 lg:right-5" width="50px" height="50px" stroke-width="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#00bf63"><path d="M6.75827 17.2426L12.0009 12M17.2435 6.75736L12.0009 12M12.0009 12L6.75827 6.75736M12.0009 12L17.2435 17.2426" stroke="#00bf63" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+
+            <div class="flex flex-col gap-4">
+                <p>Pour télécharger notre plaquette PDF, veuillez remplir le champ email.
+                    Nous avons besoin de votre adresse email pour procéder au téléchargement.
+                    Une fois l'email renseigné, le téléchargement commencera automatiquement.
+                </p>
+                <div class="text-green text-lg uppercase font-finalSixBlack ">Télécharger la plaquette : </div>
+                <div class="lg:flex items-center mb-4 space-y-2 lg:space-y-0">
+                    <form action="/api/contact" method="POST" id="form_plaquette" class="lg:flex items-center mb-4 space-y-2 lg:space-y-0">
+                        <label class="hidden" for="email_pdf">Votre email  :</label>
+                        <div>
+                            <input required placeholder="Votre email" type="email" name="email_pdf" id="email_pdf" class="bg-[#F3F3F3] text-[#9E9E9E] font-finalSixMedium outline-green outline-2 py-3 px-7 lg:rounded-l-xl lg:rounded-r-none w-full rounded-lg">
+                        </div>
+                        <button class="js-program font-finalSixMedium bg-black text-white py-3 px-7 lg:rounded-r-xl lg:rounded-l-none rounded-lg w-full lg:w-fit"> Continuer </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+
+<script>
+    // @ts-ignore
+   import AOS from "aos"; 
+
+   import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
+    Notify.init({
+        position: 'right-bottom',
+    });
+   
+   document.addEventListener('astro:afterload', () => {
+     AOS.refresh();
+   });
+
+   const btnDownload = document.querySelector('.js-dl');
+   const modale = document.querySelector('#modale');
+   const cross = document.querySelector('#cross');
+   const btnProgram = document.querySelector('.js-program');
+
+   btnDownload?.addEventListener("click" , (e) => {
+    e.preventDefault();
+    modale?.classList.remove('invisible' , 'opacity-0');
+    modale?.classList.add('visible' , 'opacity-1');
+   });
+
+   cross?.addEventListener("click" , () => {
+    modale?.classList.remove('visible' , 'opacity-1');
+    modale?.classList.add('invisible' , 'opacity-0');
+   })
+
+   const pdf = '../public/pdf/greenskills.pdf';
+   const form = document.querySelector('#form_plaquette');
+   const emailPdf = document.querySelector('#email_pdf');
+
+
+//    window.open(pdf, "_blank", '');
+   form?.addEventListener("submit" , (e) => {
+
+        e.preventDefault();
+
+        let data = {
+            //@ts-ignore
+            email : emailPdf?.value,
+        }
+
+        let promise = fetch('/api/contact', {
+            method: "POST", 
+            headers: {
+            "Content-Type": "text/plain;charset=UTF-8" 
+            },
+            body: JSON.stringify(data), 
+            mode: "cors", 
+            credentials: "same-origin", 
+            cache: "default", 
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            Notify.success(data.message);
+            //@ts-ignore
+            if (emailPdf) {
+                //@ts-ignore
+                emailPdf.value = '';
+            }
+
+            setTimeout(() => {
+                window.open(pdf, "_blank", '');
+            }, 1500)
+        })
+        })
+</script>

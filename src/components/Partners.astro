@@ -1,0 +1,94 @@
+---
+
+import { Image } from "astro:assets";
+import partner1 from '../images/partners/marsea.png';
+import partner2 from '../images/partners/logo-france-travail.png';
+import partner3 from '../images/partners/ministere_travail.png';
+import partner4 from '../images/partners/europe.png';
+import partner5 from '../images/partners/ue_paca.png';
+
+---
+
+<div class="lg:hidden slide-content overflow-hidden w-max flex items-center gap-4">
+    <div class="slide flex gap-4 w-max mb-[var(--blocks-gap)]">
+        <div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+            <Image src={partner1} alt="logo synergie" class=" h-full w-full object-contain"/>
+        </div>
+        <div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+            <Image src={partner2} alt="logo synergie" class=" h-full w-full object-contain"/>
+        </div>
+        <div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+            <Image src={partner3} alt="logo synergie" class=" h-full w-full object-contain"/>
+        </div>
+        <div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+            <Image src={partner4} alt="logo synergie" class=" h-full w-full object-contain"/>
+        </div>
+        <div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+            <Image src={partner5} alt="logo synergie" class=" h-full w-full object-contain"/>
+        </div>
+        
+    </div>
+
+    <div class="slide flex gap-4 w-max mb-[var(--blocks-gap)]">
+        <div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+            <Image src={partner1} alt="logo synergie" class=" h-full w-full object-contain"/>
+        </div>
+        <div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+            <Image src={partner2} alt="logo synergie" class=" h-full w-full object-contain"/>
+        </div>
+        <div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+            <Image src={partner3} alt="logo synergie" class=" h-full w-full object-contain"/>
+        </div>
+        <div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+            <Image src={partner4} alt="logo synergie" class=" h-full w-full object-contain"/>
+        </div>
+        <div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+            <Image src={partner5} alt="logo synergie" class=" h-full w-full object-contain"/>
+        </div>
+        
+    </div>
+</div>
+
+<div class="hidden lg:block partners-laptop">
+    <div class="container">
+        <div class="slide-laptop flex justify-center gap-4 w-full mb-[var(--blocks-gap)]">
+            <div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+                <Image src={partner1} alt="logo synergie" class=" h-full w-full object-contain"/>
+            </div>
+            <div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+                <Image src={partner2} alt="logo synergie" class=" h-full w-full object-contain"/>
+            </div>
+            <div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+                <Image src={partner3} alt="logo synergie" class=" h-full w-full object-contain"/>
+            </div>
+            <div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+                <Image src={partner4} alt="logo synergie" class=" h-full w-full object-contain"/>
+            </div>
+            <div class=" bg-white w-[150px] rounded-xl shadow-lg py-3 px-6">
+                <Image src={partner5} alt="logo synergie" class=" h-full w-full object-contain"/>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<style>
+	.slide {
+		animation: scrollX 10s linear infinite;
+  		transform: translateY(-20%);
+	}
+
+	.slide div:nth-child(2n), .slide-laptop div:nth-child(2n) {
+		transform: translateY(20%);
+	}
+
+	@keyframes scrollX {
+	0% {
+		transform: translate(0,0);
+	}
+	100% {
+		transform: translate(-100%,0);
+	}
+
+	}
+</style>

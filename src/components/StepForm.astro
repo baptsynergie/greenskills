@@ -1,0 +1,416 @@
+---
+import { Image } from 'astro:assets';
+import alveoles from "../images/pictos/alveoles_choice.svg";
+import arrow from "../images/pictos/arrow_choice.svg";
+
+if (Astro.request.method === "POST") {
+    console.log(Astro.request);
+  try {
+    const data = await Astro.request.formData();
+    const name = data.get("username");
+    const email = data.get("email");
+    const password = data.get("password");
+    // Faire quelque chose avec les données
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
+
+---
+
+<section id="step-form" class="pt-[var(--blocks-gap)]">
+    <div class="container">
+
+        <div class="flex flex-col gap-4 items-center lg:justify-between mb-[var(--blocks-gap-demi)] lg:gap-0 lg:flex-row">
+            <div class="flex items-center justify-center gap-4">
+                <svg width="51" height="58" viewBox="0 0 51 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M51 17.3007C51 15.2995 49.9472 13.4494 48.2386 12.4488L28.2619 0.750467C26.5533 -0.250156 24.4477 -0.250156 22.7381 0.750467L2.76138 12.4497C1.05283 13.4504 0 15.3004 0 17.3017V40.6993C0 42.7005 1.05283 44.5506 2.76138 45.5512L22.7381 57.2495C24.4467 58.2502 26.5523 58.2502 28.2619 57.2495L48.2386 45.5512C49.9472 44.5506 51 42.7005 51 40.6993V17.3017V17.3007ZM33.0174 31.3504L17.9557 44.0366C17.2317 44.6472 16.2289 43.8104 16.7106 42.998L21.8247 31.1924C22.0507 30.813 21.9468 30.3312 21.5882 30.0903L16.4029 27.4688C15.9491 27.1636 15.9251 26.5043 16.3548 26.1444L30.9261 13.9604C31.6463 13.3587 32.6414 14.1799 32.1741 14.9913L28.6455 26.8125C28.4119 27.2182 28.5503 27.7273 28.9541 27.9448L32.8991 29.9879C33.4087 30.263 33.4693 30.9691 33.0154 31.3504H33.0174Z" fill="white"/>
+                </svg>
+                <h2 class="text-white text-3xl font-finalSixBlack">Contactez-nous</h2>
+            </div>
+            <div class="flex items-center">
+                <button  class='border-white border-solid border-[2px] w-[30px] h-[30px] rounded-full cursor-pointer step-circle active'></button>
+                <div class="bg-white w-[60px] h-[2px]"></div>
+                <button class="border-white border-solid border-[2px] w-[30px] h-[30px] rounded-full cursor-pointer step-circle"></button>
+                <div class="bg-white w-[60px] h-[2px]"></div>
+                <button class="border-white border-solid border-[2px] w-[30px] h-[30px] rounded-full cursor-pointer step-circle"></button>
+            </div>
+        </div>
+        
+
+        <form id="choice_form" class="shadow-lg bg-white lg:p-24 p-10 rounded-xl relative" action="/api/talentRegister" method="post"> 
+                <Image src={alveoles} alt="picto choice" class="scale-x-[-1] js-background absolute top-0 left-0" />
+                <Image src={arrow} alt="picto choice" class="absolute bottom-0 right-4 js-arrow" />
+
+                <div id="step_choice" class="js-step active-step relative justify-center items-center lg:h-[380px]">
+
+                    <div>
+                        <h1 class="gap-4 font-finalSixMedium text-center mb-12 text-2xl">Je suis ... </h1>
+
+                        <div class="lg:flex lg:gap-5 lg:space-y-0 space-y-5">
+                            <button class=" js-btn-talent-form rounded-lg w-full lg:w-1/2 px-14 py-7 font-finalSixBlack text-white text-lg bg-green text-center border-solid border-[2px] border-green hover:bg-white hover:text-green transition-all"> À la recherche d'un métier vert </button>
+                            <button class=" js-btn-company-form rounded-lg w-full lg:w-1/2 px-14 py-7 font-finalSixBlack text-white text-lg bg-green text-center border-solid border-[2px] border-green hover:bg-white hover:text-green transition-all"> Une entreprise </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="step_one" class="hidden js-step lg:h-[380px]">
+                    <div class="w-full">
+                        <h1 class=" flex items-center gap-4 font-finalSixMedium text-lg text-center mb-12"><span class="text-white w-[45px] h-[45px] hidden lg:block bg-green p-2 rounded-full">1.</span> À la recherche d’un nouveau défi professionnel ?</h1>
+
+                        <div class="lg:flex lg:items-center lg:gap-5 mb-7">
+                            <div class="lg:w-1/2 mb-7 lg:mb-0">
+                                <label class="hidden" for="lastname">Nom :</label>
+                                <input placeholder="Nom*" type="text" name="lastname" class="bg-[#F3F3F3] text-[#9E9E9E] font-finalSixMedium outline-green outline-2 py-3 px-8 rounded-lg w-full" />
+                            </div>
+                
+                            <div class="lg:w-1/2 mb-7 lg:mb-0">
+                                <label class="hidden" for="firstname">Prénom :</label>
+                                <input placeholder="Prénom*"type="text" name="firstname" class="bg-[#F3F3F3] text-[#9E9E9E] font-finalSixMedium outline-green outline-2 py-3 px-8 rounded-lg w-full" />
+                            </div>
+                        </div>
+
+                        <div class="lg:flex lg:items-center lg:gap-5 mb-7">
+                            <div class="lg:w-1/2 mb-7 lg:mb-0">
+                                <label class="hidden" for="email">Email :</label>
+                                <input placeholder="Email*" type="email" name="email" class="bg-[#F3F3F3] text-[#9E9E9E] font-finalSixMedium outline-green outline-2 py-3 px-8 rounded-lg w-full" />
+                            </div>
+                
+                            <div class="lg:w-1/2 mb-7 lg:mb-0">
+                                <label class="hidden" for="phone">Téléphone :</label>
+                                <input placeholder="Téléphone*" type="tel" name="phone" class="bg-[#F3F3F3] text-[#9E9E9E] font-finalSixMedium outline-green outline-2 py-3 px-8 rounded-lg w-full" />
+                            </div>
+                        </div>
+
+                        <div class="lg:w-1/2">
+                            <label class="hidden" for="city">Ville :</label>
+                            <input placeholder="Ville*" type="text" name="city" class="bg-[#F3F3F3] text-[#9E9E9E] font-finalSixMedium outline-green outline-2 py-3 px-8 rounded-lg w-full" />
+                        </div>
+                        
+                        <div class="lg:flex lg:justify-between lg:items-center mt-7 lg:mt-0">
+                            <p class="text-[#9E9E9E] font-finalSixMedium">Champs obligatoires(*)</p>
+                            <div class="flex flex-col lg:flex-row lg:gap-2 gap-4">
+                                <button class="js-btn-back-choice lg:mt-7 font-finalSixMedium border-green border-solid border-[2px] text-green bg-white  rounded-lg py-3 px-8">Retour</button>
+                                <button class="js-next-btn mt-7 font-finalSixMedium bg-green text-white rounded-lg py-3 px-8">Continuer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="step_one_company" class="hidden js-step lg:h-[380px]">
+                    <div class="w-full">
+                        <h1 class=" flex items-center gap-4 font-finalSixMedium text-lg mb-12"><span class="text-white w-[45px] h-[45px] hidden lg:block bg-green p-2 rounded-full text-center">1.</span> Rejoignez un collectif d’entreprises et d’organismes de formation engagés autour de la promotion des métiers verts !</h1>
+
+                        <div class="lg:flex lg:items-center lg:gap-5 mb-7">
+                            <div class="lg:w-1/2 mb-7 lg:mb-0">
+                                <label class="hidden" for="companyName">Nom de la structure :</label>
+                                <input placeholder="Nom de la structure*" type="text" name="companyName" class="bg-[#F3F3F3] text-[#9E9E9E] font-finalSixMedium outline-green outline-2 py-3 px-8 rounded-lg w-full" />
+                            </div>
+                
+                            <div class="lg:w-1/2 mb-7 lg:mb-0">
+                                <label class="hidden" for="zipCode">Code Postal :</label>
+                                <input placeholder="Code Postal*"type="text" name="zipCode" class="bg-[#F3F3F3] text-[#9E9E9E] font-finalSixMedium outline-green outline-2 py-3 px-8 rounded-lg w-full" />
+                            </div>
+                        </div>
+
+                        <div class="lg:flex lg:items-center lg:gap-5 mb-7">
+                            <div class="lg:w-1/2 mb-7 lg:mb-0">
+                                <label class="hidden" for="lastnameCompany">Nom :</label>
+                                <input placeholder="Nom*" type="text" name="lastnameCompany" class="bg-[#F3F3F3] text-[#9E9E9E] font-finalSixMedium outline-green outline-2 py-3 px-8 rounded-lg w-full" />
+                            </div>
+                
+                            <div class="lg:w-1/2 mb-7 lg:mb-0">
+                                <label class="hidden" for="firstnameCompany">Prénom :</label>
+                                <input placeholder="Prénom*" type="text" name="firstnameCompany" class="bg-[#F3F3F3] text-[#9E9E9E] font-finalSixMedium outline-green outline-2 py-3 px-8 rounded-lg w-full" />
+                            </div>
+                        </div>
+
+                        <div class="lg:flex lg:items-center lg:gap-5 mb-7">
+                            <div class="lg:w-1/2 mb-7 lg:mb-0">
+                                <label class="hidden" for="emailCompany">Nom :</label>
+                                <input placeholder="Email*" type="email" name="emailCompany" class="bg-[#F3F3F3] text-[#9E9E9E] font-finalSixMedium outline-green outline-2 py-3 px-8 rounded-lg w-full" />
+                            </div>
+                
+                            <div class="lg:w-1/2 mb-7 lg:mb-0">
+                                <label class="hidden" for="phoneCompany">Téléphone :</label>
+                                <input placeholder="Téléphone*" type="tel" name="phoneCompany" class="bg-[#F3F3F3] text-[#9E9E9E] font-finalSixMedium outline-green outline-2 py-3 px-8 rounded-lg w-full" />
+                            </div>
+                        </div>
+                        
+                        <div class="lg:flex lg:justify-between lg:items-center mt-7 lg:mt-0">
+                            <p class="text-[#9E9E9E] font-finalSixMedium">Champs obligatoires(*)</p>
+                            <div class="flex flex-col lg:flex-row lg:gap-2 gap-4">
+                                <button class="js-btn-back-choice lg:mt-7 font-finalSixMedium border-green border-solid border-[2px] text-green bg-white  rounded-lg py-3 px-8">Retour</button>
+                                <button class="js-next-btn-company mt-7 font-finalSixMedium bg-green text-white rounded-lg py-3 px-8">Continuer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+   
+
+           
+                <div id="step_two" class="js-step hidden lg:h-[380px]">
+
+                    <div class="w-full">
+                        <h1 class=" flex items-center gap-4 font-finalSixMedium text-lg text-center mb-12"><span class="text-white w-[45px] h-[45px] hidden lg:block bg-green p-2 rounded-full">2.</span> Laissez-nous en savoir un peu plus...</h1>
+
+                        <div class="lg:w-full mb-7">
+                            <label class="hidden" for="position">Je suis </label>
+                            <select name="position" class="bg-[#F3F3F3] text-[#9E9E9E] font-finalSixMedium outline-green outline-2 py-3 px-8 rounded-lg w-full">
+                                <option value="">Je suis...</option>
+                                    <option value="A la recherche d’un premier travail">A la recherche d’un premier travail</option>
+                                    <option value="En reconversion professionnelle et intéressé.e par les métiers verts.">En reconversion professionnelle et intéressé.e par les métiers verts.</option>
+                                    <option value="Déjà dans le secteur mais je suis actuellement sans emploi.">Déjà dans le secteur mais je suis actuellement sans emploi.</option>
+                                    <option value="Peu au courant et je souhaite me sensibiliser sur les métiers verts de l’industrie pour savoir si cela peut m’intéresser.">Peu au courant et je souhaite me sensibiliser sur les métiers verts de l’industrie pour savoir si cela peut m’intéresser.</option>
+                            </select>
+                        </div>
+                        <div class="lg:w-full mb-7">
+                            <label class="hidden" for="study">Je suis </label>
+                            <select name="study" class="bg-[#F3F3F3] text-[#9E9E9E] font-finalSixMedium outline-green outline-2 py-3 px-8 rounded-lg w-full">
+                                <option value="">Quel est votre niveau d'études ?</option>
+                                    <option value="Infra Bac">Infra Bac</option>
+                                    <option value="Bac professionnel">Bac professionnel</option>
+                                    <option value="Bac +2 +3 ou équivalent">Bac +2 +3 ou équivalent</option>
+                                    <option value="Bac +5 ou doctorant.e">Bac +5 ou doctorant.e</option>
+                            </select>
+                        </div>
+                        <div class="lg:w-full mb-7">
+                            <label class="hidden" for="howHearAboutUs">Je suis </label>
+                            <select name="howHearAboutUs" class="bg-[#F3F3F3] text-[#9E9E9E] font-finalSixMedium outline-green outline-2 py-3 px-8 rounded-lg w-full">
+                                <option value="">Comment avez-vous entendu parler de notre programme ?</option>
+                                    <option value="France Travail">France Travail</option>
+                                    <option value="APEC">APEC</option>
+                                    <option value="Missions locales">Missions locales</option>
+                                    <option value="Réseau sociaux et internet">Réseau sociaux et internet</option>
+                                    <option value="Réseau sociaux et internet">Réseau sociaux et internet</option>
+                                    <option value="Bouche à oreille">Bouche à oreille</option>
+                                    <option value="Autres">Autres</option>
+                            </select>
+                        </div>
+
+                        <div class="lg:flex lg:justify-between lg:items-center mt-7 lg:mt-0">
+                            <div class="mb-7 lg_mb-0">
+                                <input type="checkbox" id="isOptin" name="isOptin" />
+                                <label class="font-finalSixMedium text-sm" for="isOptin">En envoyant ce formulaire, j’accepte que la team Green Skills me recontacte.</label>
+                            </div>
+                            <div class="flex flex-col lg:flex-row lg:gap-2 gap-4">
+                                <button class="js-btn-back lg:mt-7 font-finalSixMedium border-green border-solid border-[2px] text-green bg-white  rounded-lg py-3 px-8">Retour</button>
+                                <button class="lg:mt-7 font-finalSixMedium bg-green text-white rounded-lg py-3 px-8">Valider le formulaire</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="step_two_company" class="js-step hidden lg:h-[380px]">
+
+                    <div class="w-full flex flex-col justify-between">
+                       
+                        <h1 class=" flex items-center gap-4 font-finalSixMedium text-lg text-center mb-12"><span class="text-white w-[45px] h-[45px] hidden lg:block bg-green p-2 rounded-full">2.</span> Laissez-nous en savoir un peu plus...</h1>
+
+                        <div>
+                            <div class="lg:w-full mb-7">
+                                <input type="checkbox" id="getBackInTouch" name="getBackInTouch" value="" />
+                                <label class="font-finalSixMedium text-base" for="getBackInTouch">Je souhaite être contacté par l’équipe Green Skills</label>
+                            </div>
+                    
+                            <div class="lg:w-full mb-7">
+                                <input type="checkbox" id="offers" name="offers" value="" />
+                                <label class="font-finalSixMedium text-base" for="offers">J’ai des offres d’emplois à pourvoir</label>
+                            </div>
+                        </div>
+
+                        <div class="lg:self-end">
+                            <div class="flex flex-col lg:flex-row lg:gap-2 gap-4">
+                                <button class="js-btn-back-company lg:mt-7 font-finalSixMedium border-green border-solid border-[2px] text-green bg-white rounded-lg py-3 px-8">Retour</button>
+                                <button class="lg:mt-7 font-finalSixMedium bg-green text-white rounded-lg py-3 px-8">Valider le formulaire</button>
+                            </div>
+                        </div>
+                     
+
+                    </div>
+
+                </div>
+            
+        </form>
+    </div>
+</section>
+
+<script>
+
+    const circles = document.querySelectorAll('.step-circle');
+    const steps = document.querySelectorAll('.js-step');
+    const btnContinue = document.querySelector('.js-next-btn');
+    const btnContinueCompany = document.querySelector('.js-next-btn-company');
+    const backBtn = document.querySelector('.js-btn-back');
+    const backBtnCompany = document.querySelector('.js-btn-back-company');
+    const btnTalent = document.querySelector('.js-btn-talent-form');
+    const btnCompany = document.querySelector('.js-btn-company-form');
+    const backToChoice = document.querySelectorAll('.js-btn-back-choice');
+    const backgroundImage = document.querySelector('.js-background');
+    const arrow = document.querySelector('.js-arrow');
+
+
+    function changeColorCircle(event: any) {
+        let target = event.target;
+        if(!target.classList.contains("active")) {
+            target.classList.add("active");
+            circles.forEach(element => {
+                if(element !== target) {
+                    element.classList.remove("active")
+                }
+            });
+        }
+    }
+
+    circles.forEach((item) => {
+        item.addEventListener("click" , (e) => {
+            changeColorCircle(e);
+        })
+    })
+
+    btnContinue?.addEventListener("click" , (e) => {
+        e.preventDefault();
+        backgroundImage?.classList.add('hidden');
+        backgroundImage?.classList.remove('block');
+        arrow?.classList.add('hidden');
+        arrow?.classList.remove('block');
+        let step_two = document.querySelector('#step_two');
+        step_two?.classList.remove('hidden');
+        step_two?.classList.add('active-step');
+        steps.forEach((item) => {
+            if(item !== step_two && item.classList.contains("active-step")) {
+                item.classList.remove('active-step');
+                item.classList.add('hidden');
+            }
+        })
+    })
+
+    btnContinueCompany?.addEventListener("click" , (e) => {
+        e.preventDefault();
+        backgroundImage?.classList.add('hidden');
+        backgroundImage?.classList.remove('block');
+        arrow?.classList.add('hidden');
+        arrow?.classList.remove('block');
+        let step_two = document.querySelector('#step_two_company');
+        step_two?.classList.remove('hidden');
+        step_two?.classList.add('active-step');
+        steps.forEach((item) => {
+            if(item !== step_two && item.classList.contains("active-step")) {
+                item.classList.remove('active-step');
+                item.classList.add('hidden');
+            }
+        })
+    })
+
+    backToChoice.forEach((item) => {
+        item?.addEventListener("click" , (e) => {
+        e.preventDefault();
+        backgroundImage?.classList.add('block');
+        backgroundImage?.classList.remove('hidden');
+        arrow?.classList.add('block');
+        arrow?.classList.remove('hidden');
+        let step_choice = document.querySelector('#step_choice');
+        step_choice?.classList.remove('hidden');
+        step_choice?.classList.add('active-step');
+        steps.forEach((item) => {
+            if(item !== step_choice && item.classList.contains("active-step")) {
+                item.classList.remove('active-step');
+                item.classList.add('hidden');
+            }
+        })
+    })
+    })
+    
+
+    backBtn?.addEventListener("click" , (e) => {
+        e.preventDefault();
+        backgroundImage?.classList.add('hidden');
+        backgroundImage?.classList.remove('block');
+        arrow?.classList.add('hidden');
+        arrow?.classList.remove('block');
+        let step_one = document.querySelector('#step_one');
+        step_one?.classList.remove('hidden');
+        step_one?.classList.add('active-step');
+        steps.forEach((item) => {
+            if(item !== step_one && item.classList.contains("active-step")) {
+                item.classList.remove('active-step');
+                item.classList.add('hidden');
+            }
+        })
+    })
+
+    backBtnCompany?.addEventListener("click" , (e) => {
+        e.preventDefault();
+        backgroundImage?.classList.add('hidden');
+        backgroundImage?.classList.remove('block');
+        arrow?.classList.add('hidden');
+        arrow?.classList.remove('block');
+        let step_one = document.querySelector('#step_one_company');
+        step_one?.classList.remove('hidden');
+        step_one?.classList.add('active-step');
+        steps.forEach((item) => {
+            if(item !== step_one && item.classList.contains("active-step")) {
+                item.classList.remove('active-step');
+                item.classList.add('hidden');
+            }
+        })
+    })
+
+    btnTalent?.addEventListener("click" , (e) => {
+        //@ts-ignore
+        document.querySelector('#choice_form').action = '/api/talentRegister';
+        e.preventDefault();
+        backgroundImage?.classList.add('hidden');
+        backgroundImage?.classList.remove('block');
+        arrow?.classList.add('hidden');
+        arrow?.classList.remove('block');
+        let step_one = document.querySelector('#step_one');
+        step_one?.classList.remove('hidden');
+        step_one?.classList.add('active-step');
+        steps.forEach((item) => {
+            if(item !== step_one && item.classList.contains("active-step")) {
+                item.classList.remove('active-step');
+                item.classList.add('hidden');
+            }
+        })
+    })
+
+    btnCompany?.addEventListener("click" , (e) => {
+         //@ts-ignore
+        document.querySelector('#choice_form').action = '/api/companyRegister';
+        e.preventDefault();
+        backgroundImage?.classList.add('hidden');
+        backgroundImage?.classList.remove('block');
+        arrow?.classList.add('hidden');
+        arrow?.classList.remove('block');
+        let step_one = document.querySelector('#step_one_company');
+        step_one?.classList.remove('hidden');
+        step_one?.classList.add('active-step');
+        steps.forEach((item) => {
+            if(item !== step_one && item.classList.contains("active-step")) {
+                item.classList.remove('active-step');
+                item.classList.add('hidden');
+            }
+        })
+    })
+
+</script>
+
+<style>
+    .active {
+        background-color: white;
+        transition: all .2s ease;
+    }
+
+    .active-step {
+        display: flex;
+    }
+
+
+
+</style>

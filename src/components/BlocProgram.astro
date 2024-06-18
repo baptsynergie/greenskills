@@ -1,0 +1,37 @@
+---
+
+import { Image } from 'astro:assets';
+
+interface Props {
+	picto: ImageMetadata;
+	title: string;
+	list : string[];
+}
+
+const { picto, title, list } = Astro.props;
+
+---
+
+<div data-aos="fade-up" class="relative z-10 rounded-xl bg-green text-white py-7 px-10 lg:flex lg:justify-between mt-[var(--blocks-gap-demi)] drop-shadow-lg">
+    <div class="flex items-center gap-5 mb-5 lg:mb-0">
+        <div>
+            <Image src={picto} width="34" height="52" alt="picto programme green skils"/>
+        </div>
+        <p class=" text-white font-finalSixExtraBold text-2xl">{title}</p>
+    </div>
+    <ul class="list-disc space-y-5">
+        {list.map((item) => (
+            <li class="text-white font-finalSixBold text-base"><Fragment set:html={item} /></li>
+          ))}
+    </ul>
+</div>
+
+
+<script>
+    // @ts-ignore
+   import AOS from "aos"; 
+   
+   document.addEventListener('astro:afterload', () => {
+     AOS.refresh();
+   });
+</script>

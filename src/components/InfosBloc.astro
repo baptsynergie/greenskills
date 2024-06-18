@@ -1,0 +1,42 @@
+---
+
+import { Image } from 'astro:assets';
+
+interface Props {
+	image: ImageMetadata;
+	title: string;
+    list : string[];
+}
+
+const { image, title,  list } = Astro.props;
+
+---
+
+<div class="mb-5" data-aos="fade-up">
+    <div class="flex items-center gap-4 mb-4">
+        <div>
+            <Image
+            src={image}
+            alt="picto green skills"
+            width="50"
+            />
+        </div>
+        <div class="text-black text-2xl font-finalSixExtraBold">
+            {title}
+        </div>
+    </div>
+    <ul class="list-disc list-inside font-finalSixMedium text-black pl-5">
+        {list.map((item) => (
+            <li><Fragment set:html={item} /></li>
+          ))}
+    </ul>
+</div>
+
+<script>
+    // @ts-ignore
+   import AOS from "aos"; 
+   
+   document.addEventListener('astro:afterload', () => {
+     AOS.refresh();
+   });
+</script>

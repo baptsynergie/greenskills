@@ -3,12 +3,12 @@ import { app } from "../../../firebase/server";
 import { getFirestore } from "firebase-admin/firestore";
 
 export const POST: APIRoute = async ({ request, redirect }) => {
-    const formData = await request.formData();
-    const email = formData.get("email")?.toString();
-    const firstName = formData.get("firstName")?.toString();
-    const lastName = formData.get("lastName")?.toString();
-  
-    if (!firstName || !lastName) {
+
+    const body = await request.json();
+
+    const email = body.email;
+
+    if (!email) {
       return new Response("Missing required fields", {
         status: 400,
       });
@@ -18,8 +18,6 @@ export const POST: APIRoute = async ({ request, redirect }) => {
       const contactRef = db.collection("contact");
       await contactRef.add({
         email,
-        firstname: firstName,
-        lastname: lastName,
       });
     } catch (error) {
         console.log(error)
@@ -27,5 +25,11 @@ export const POST: APIRoute = async ({ request, redirect }) => {
         status: 500,
       });
     }
-    return redirect("/dashboard");
+    
+    return new Response(JSON.stringify({ message: "Merci ! La plaquette est disponible dans un nouvel onglet ⚡" }), {
+      status: 200,
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
   };

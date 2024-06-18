@@ -33,11 +33,13 @@ console.log(bgImage.src)
                 </p>
                 <div class="text-green text-lg uppercase font-finalSixBlack ">Télécharger la plaquette : </div>
                 <div class="lg:flex items-center mb-4 space-y-2 lg:space-y-0">
-                    <label class="hidden" for="email_pdf">Votre email  :</label>
-                    <div>
-                        <input required placeholder="Votre email" type="email" name="email_pdf" id="email_pdf" class="bg-[#F3F3F3] text-[#9E9E9E] font-finalSixMedium outline-green outline-2 py-3 px-7 lg:rounded-l-xl lg:rounded-r-none w-full rounded-lg">
-                    </div>
-                    <button class="js-program font-finalSixMedium bg-black text-white py-3 px-7 lg:rounded-r-xl lg:rounded-l-none rounded-lg w-full lg:w-fit"> Continuer </button>
+                    <form action="/api/contact" method="POST" id="form_plaquette" class="lg:flex items-center mb-4 space-y-2 lg:space-y-0">
+                        <label class="hidden" for="email_pdf">Votre email  :</label>
+                        <div>
+                            <input required placeholder="Votre email" type="email" name="email_pdf" id="email_pdf" class="bg-[#F3F3F3] text-[#9E9E9E] font-finalSixMedium outline-green outline-2 py-3 px-7 lg:rounded-l-xl lg:rounded-r-none w-full rounded-lg">
+                        </div>
+                        <button class="js-program font-finalSixMedium bg-black text-white py-3 px-7 lg:rounded-r-xl lg:rounded-l-none rounded-lg w-full lg:w-fit"> Continuer </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -49,6 +51,12 @@ console.log(bgImage.src)
 <script>
     // @ts-ignore
    import AOS from "aos"; 
+
+   import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
+    Notify.init({
+        position: 'right-bottom',
+    });
    
    document.addEventListener('astro:afterload', () => {
      AOS.refresh();
@@ -71,11 +79,44 @@ console.log(bgImage.src)
    })
 
    const pdf = '../public/pdf/greenskills.pdf';
+   const form = document.querySelector('#form_plaquette');
+   const emailPdf = document.querySelector('#email_pdf');
 
-   btnProgram?.addEventListener("click" , () => {
 
-    //TODO requete API pour l'envoyer a firebase + validation formulaire 
-    
-    window.open(pdf, "_blank", '');
-   })
+//    window.open(pdf, "_blank", '');
+   form?.addEventListener("submit" , (e) => {
+
+        e.preventDefault();
+
+        let data = {
+            //@ts-ignore
+            email : emailPdf?.value,
+        }
+
+        let promise = fetch('/api/contact', {
+            method: "POST", 
+            headers: {
+            "Content-Type": "text/plain;charset=UTF-8" 
+            },
+            body: JSON.stringify(data), 
+            mode: "cors", 
+            credentials: "same-origin", 
+            cache: "default", 
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            Notify.success(data.message);
+            //@ts-ignore
+            if (emailPdf) {
+                //@ts-ignore
+                emailPdf.value = '';
+            }
+
+            setTimeout(() => {
+                window.open(pdf, "_blank", '');
+            }, 1500)
+        })
+        })
 </script>

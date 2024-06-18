@@ -24,7 +24,7 @@ let actuallyYear = new Date().getFullYear();
                 <h4 class="mb-4 font-finalSixExtraBold text-white text-xl">La Newsletter</h4>
                 <div class="flex items-center mb-4">
                     <!-- TODO faire une requete ajax plutot -->
-                    <form action="/api/newsletter" class="flex items-center mb-4" method="POST">
+                    <form action="/api/newsletter" class="flex items-center mb-4" id="newsletter-form" method="POST">
                         <label class="hidden" for="email">La newsletter :</label>
                         <div>
                             <input placeholder="Votre email" type="email" name="email" id="newsletter" class="bg-[#F3F3F3] text-[#9E9E9E] font-finalSixMedium outline-green outline-2 py-3 px-7 rounded-l-xl w-full">
@@ -50,3 +50,53 @@ let actuallyYear = new Date().getFullYear();
 
     </div>
 </footer>
+
+<script>
+    import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
+    Notify.init({
+        position: 'left-bottom',
+        success: {
+        background: '#000000',
+        textColor: '#fff',
+        notiflixIconColor: '#fff'
+        },
+    });
+
+    const form = document.querySelector('#newsletter-form');
+    const inputNews = document.querySelector('#newsletter');
+
+    form?.addEventListener("submit" , (e) => {
+
+        e.preventDefault();
+
+        let data = {
+            //@ts-ignore
+            email : inputNews?.value,
+        }
+
+        let promise = fetch('/api/newsletter', {
+            method: "POST", 
+            headers: {
+            "Content-Type": "text/plain;charset=UTF-8" 
+            },
+            body: JSON.stringify(data), 
+            mode: "cors", 
+            credentials: "same-origin", 
+            cache: "default", 
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            Notify.success(data.message);
+            //@ts-ignore
+            if (inputNews) {
+                //@ts-ignore
+                inputNews.value = '';
+            }
+        })
+    })
+    
+
+</script>
